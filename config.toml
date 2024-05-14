@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-# baseURL = "https://insighture-blog-dev.netlify.app/"
+# baseURL = "https://dtest-blogs.netlify.app/"
 baseURL = "/"
 title = "The Insighture Blog"
 theme = "bookworm"
