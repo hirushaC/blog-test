@@ -9,8 +9,6 @@ collections:
     folder: "content/english/article"
     create: true
     slug: "{{slug}}"
-    media_folder: "static/article/{{slug}}"
-    public_folder: "/article/{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
