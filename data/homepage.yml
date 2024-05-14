@@ -1,0 +1,10 @@
+##################################### call to action #######################
+cta:
+  enable: true
+  bgNewImage: "images/backgrounds/letsp.png"
+  title: "Let’s Partner"
+  subtitle: "We have scaled over the years but not compromised on quality. If you want to stay competitive and strive for quality and excellence, we will make a great team! "
+  button:
+    enable: true
+    label: "TALK TO US"
+    link: "/contact"

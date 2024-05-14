@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default `en-US` }}">
+
+<head>
+  {{ partial "head.html" . }}
+  {{ partialCached "style.html" . }}
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<!-- style for progress bar -->
+<style>
+    .progress_section{
+        height: 5px;
+        background-color:transparent;
+        width: 100%;
+        position: sticky;
+        left: 0;
+        /* top: 0; */
+    }
+    .progress_highlight{
+        transition: width 0.15s linear;
+        background-color: #FF615A;
+        height: 100%;
+        width: 0%;
+    }
+</style>
+
+<body>
+  {{ partialCached "preloader.html" . }}
+  {{ partial "header.html" . }}
+  {{if and (not .IsHome) (ne .Section "blog") (ne .Section "article") (ne .Title "404 Page not found") (ne .Section "homepage") (ne .Permalink (`about/` | absLangURL)) (ne .Permalink (`search/` | absLangURL)) }}
+  {{ partial "page-header.html" . }}
+  {{end}}
+  <div class="container_section" id="js_container">
+  {{ block "main" . }}{{ end }}
+  {{ partialCached "footer.html" . }}
+  </div>
+  {{ partialCached "script.html" . }}
+</body>
+<!-- script for progress bar -->
+<script>
+    const container_section = document.getElementById('js_container');
+    const highlight = document.getElementById('js_highlight');
+    var containerHeight;
+
+    window.onscroll = function(){
+        containerHeight = container_section.offsetHeight - window.innerHeight;
+        containerPos = container_section.getBoundingClientRect();
+        diff = containerHeight + containerPos.top;
+        progressPercentage = diff/containerHeight * 100;
+        cssWidth = Math.floor(100 - progressPercentage);
+        highlight.style.width = cssWidth + "%";
+    }
+</script>
+<!-- Hotjar Tracking Code for https://blog.insighture.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2472399,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</html>

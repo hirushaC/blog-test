@@ -1,0 +1,36 @@
+<section class="section-sm pb-2 page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 mx-auto text-center">
+
+        {{ if or (eq .Section "tags") (eq .Section "categories") }}
+        {{ if or (eq .Permalink (`tags/` | absLangURL)) (eq .Permalink (`categories/` | absLangURL)) }}
+        <h3 class="mb-3 text-dark font-weight-bold">{{.Title | markdownify}}</h3>
+        {{else}}
+        <h4 class="mb-3 text-dark font-weight-bold">{{ i18n "showing_posts_from" }} <mark>{{.Title | markdownify}}</mark></h4>
+        {{ end }}
+        {{ else }}
+        <h3 class="mb-3 text-dark font-weight-bold">{{.Title | markdownify}}</h3>
+        {{ end }}
+
+
+
+
+      <span  class="list-inline breadcrumb-menu">
+          {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+      </span>
+      {{ define "breadcrumbnav" }}
+      {{ if .p1.Parent }}
+      {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+      {{ else if not .p1.IsHome }}
+      {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+      {{ end }}
+      <li class="list-inline-item" {{ if eq .p1 .p2 }} class="active"{{ end }}>
+          <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a> /
+      </li>
+      {{ end }}
+
+      </div>
+    </div>
+  </div>
+</section>

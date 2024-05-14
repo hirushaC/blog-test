@@ -1,0 +1,82 @@
+<style>
+    .pcard:hover {
+    background-color: white;
+    box-shadow: 0px 10px 30px 0px #33333326;
+
+  }
+</style>
+
+
+
+<!-- px-3 pt-3 pb-3 -->
+<article class="card post-card pcard pb-3 mb-0 mx-3" style="background-color: transparent;border-radius: 5px;height: 100%;">
+  {{ with .Params.image }}
+  <div class="post-slider slider-sm mb-4" style="background-color: transparent;">
+    {{ if eq (printf "%T" .) "string" }} <!-- Check if it's a single image -->
+      {{ if (fileExists (add `assets/` .)) }}
+        {{ $image := resources.Get . }}
+        {{ $imageLG := $image.Fill "450x230" }}
+        <!-- Display the image -->
+        <picture>
+          <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 1200px)">
+          <img loading="lazy" class="img-fluid" src="{{ $imageLG.Permalink }}" alt="post-thumb" style="background-color: transparent;width: 100%;">
+        </picture>
+      {{ else }}
+        <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="post-thumb" style="background-color: transparent;">
+      {{ end }}
+    {{ else }} <!-- Handle the case where it's a list of images -->
+      {{ range . }} <!-- Iterate over each image in the list -->
+        {{ if (fileExists (add `assets/` .)) }}
+          {{ $image := resources.Get . }}
+          {{ $imageLG := $image.Fill "450x230" }}
+          <!-- Display the image -->
+          <picture>
+            <source srcset="{{ $imageLG.Permalink }}" media="(max-width: 1200px)">
+            <img loading="lazy" class="img-fluid" src="{{ $imageLG.Permalink }}" alt="post-thumb" style="background-color: transparent;width: 100%;">
+          </picture>
+        {{ else }}
+          <img loading="lazy" class="img-fluid" src="{{ . | absURL }}" alt="post-thumb" style="background-color: transparent;">
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <div class="card-body px-4" style="background-color: transparent;">
+    <ul class="card-meta list-inline mb-2">
+      <li class="list-inline-item mb-2">
+        <span style="font-size: 12px;font-weight: 500;line-height: 18px; color: #7D7D7D;text-transform: capitalize;">{{.PublishDate.Format "02 Jan, 2006"}}</span>
+      </li>
+      <li class="list-inline-item mb-2">
+        {{ $author:= .Params.Author | urlize | lower}}
+        {{ with site.GetPage $author }}
+        {{ if .Params.image }}
+        {{ $imagePath:= .Params.image }}
+        {{ if (fileExists (add "assets/" $imagePath)) }}
+        {{ $image:= resources.Get $imagePath }}
+        {{ $imageXS:= $image.Fill "26x26" }}
+        {{ .Scratch.Set "image" $imageXS.RelPermalink }}
+        {{ else }}
+        {{ .Scratch.Set "image" ($imagePath | absURL) }}
+        {{ end }}
+        <a href="{{.Permalink}}" class="card-meta-author">
+          <!-- <img loading="lazy" src="{{.Scratch.Get `image`}}" alt="{{ .Title }}"> -->
+          <span style="font-size: 12px;font-weight: 500;line-height: 18px; color: #FF615A;text-transform: uppercase;">{{ .Title }}</span>
+        </a>
+        {{else if .Params.Email}}
+        <a href="{{.Permalink}}" class="card-meta-author">
+          <img loading="lazy" src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=26&pg&d=identicon">
+          <span >{{ .Title }}</span>
+        </a>
+        {{ end }}
+        {{ end }}
+      </li>
+    </ul>
+    <h3 class="mb-3">
+      <a class="post-title" style="background-color: transparent;font-size: 24px;font-weight: 300;line-height: 35.55px;" href="{{.Permalink}}">{{.Title}}</a>
+    </h3>
+    <p style="background-color: transparent;font-size: 14px;font-weight: 400;line-height: 21px;">{{ .Plain | truncate 150 }}</p>
+
+    <a href="{{.Permalink}}" aria-label="READ MORE" style="background-color: transparent;font-size: 14px;font-weight: 400;line-height: 20.13px;color: #FF615A;text-transform: uppercase;">READ MORE<i class="fas fa-angle-right ml-2"></i></a>
+  </div>
+</article>

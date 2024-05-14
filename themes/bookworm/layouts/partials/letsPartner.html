@@ -1,0 +1,20 @@
+<section class="position-relative" style="background-color: aqua;">
+  <div class="container-fluid pt-5 pb-5 ps-3 pe-3 ps-sm-5 pe-sm-5 ps-md-5 pe-md-5 px-xxl-4 px-xl-2 px-lg-2"
+    style="background-image: url({{.bImage}});  background-repeat: no-repeat;background-size: cover;">
+    <div class="row g-0 ps-xl-5" style="background-color: transparent;">
+      <div class="col-xl-6 col-lg-8 pt-0 pb-0 ps-xl-5 ps-lg-5 d-flex align-items-center"
+        style="background-color: transparent;">
+        <div class="text-center text-lg-start px-xxl-3" style="background-color: transparent;">
+          <div class="pt-0 pt-lg-5 pb-0 pb-lg-5">
+            <!--h2  class="text font-family-rubik" style="color: #FFFFFF;font-weight: 300; font-size: 30px;">{{ .maintitle | markdownify }}</h2-->
+            <h1 class="text cta-text mt-4 font-family-rubik">{{ .maincontent | markdownify }}</h1>
+            <a href="{{ .buttonlink | safeURL }}" class="btn btn-outline-primary-white font-family-rubik btn-letsp mt-4"
+              style="border-radius: 0px;font-weight: 400;border-color: #ff615a;text-transform: capitalize;font-size: 13px;line-height: 16px;">
+              {{ .buttonlabel }}</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,205 @@
+<!-- cta -->
+{{ if .Site.Params.cta.enable }}
+<section class="section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="title">{{ .Site.Params.cta.title | markdownify }}</h2>
+        <a href="{{ .Site.Params.cta.link | absURL }}" class="btn btn-primary">{{ .Site.Params.cta.label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- cta -->
+
+
+
+<style>
+  @media only screen and (min-width: 992px) {
+    .large-height {
+      height: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .text-inner-padding {
+      padding-right: 35px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .text-inner-padding {
+      padding-right: 35px;
+    }
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1607px) {
+    .text-inner-padding {
+      padding-right: 50px;
+    }
+  }
+
+  @media only screen and (min-width: 1608px) {
+    .text-inner-padding {
+      padding-right: 180px;
+    }
+  }
+
+  @media only screen and (min-width:0px) and (max-width: 575px) {
+    .text-inner-padding {
+      padding-top: 20px;
+    }
+  }
+</style>
+
+<script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script> 
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+
+<div class="col-12 short-banner d-block d-lg-none pt-0 mt-5 mb-5 px-2 px-lg-0" style="background-color: white;">
+  <p class="font-family-rubik m-0 px-0">
+    <span class="short-banner-lead">{{ .Site.Params.footer.short_paragraph_title | markdownify }}</span>
+    <span>{{ .Site.Params.footer.short_paragraph | markdownify }}</span>
+  </p>
+</div>
+
+
+<footer class="pb-5 px-0 px-md-5" style="background-color:white;padding-top: 80px;">
+  <div class="container-fluid px-4 px-md-0 px-xl-5" style="background-color: transparent;">
+    <div class="row g-4 g-lg-0 px-0 px-xxl-4 px-xl-2 px-lg-2 px-md-2" style="background-color: transparent;">
+      <div class="order-1 col-12 d-block d-lg-none px-xxl-3 col-xxl-3 pt-4 pt-md-0 mt-2 mt-md-0" style="background-color: transparent;">
+        <div class="row no-gutters px-1" style="background-color: transparent;">
+          <div class="col-6 mt-2" style="background-color: transparent;">
+            <img class="img-fluid" src="{{ .Site.Params.logo | absURL }}" style="background-color: transparent;">
+          </div>
+          <div class="col-6 mb-3 px-1 d-flex justify-content-end" style="background-color: transparent;">
+            <div class="mt-2 mt-sm-3" style="background-color: transparent;">
+              <a href="{{ .Site.Params.fblink| absURL }}" target="_blank" style="background-color: transparent;">
+                <img class="img" src="{{ .Site.Params.fbIcon| absURL }}" alt="..."  style="background-color: transparent;">
+              </a>
+              <a href="{{ .Site.Params.instalink| absURL }}" target="_blank">
+                <img class="img ms-1 ms-sm-4" src="{{ .Site.Params.instaIcon| absURL }}" alt="...">
+              </a>
+              <a href="{{ .Site.Params.linkedInlink| absURL }}" target="_blank">
+                <img class="img ms-1 ms-sm-4" src="{{ .Site.Params.linkedinIcon| absURL }}" alt="...">
+              </a>
+            </div>
+          </div>
+          <div class="d-flex flex-row mt-3 mt-sm-3">
+            <img class="d-flex img me-3" src="{{ .Site.Params.gptw_badge | absURL }}" alt="gptw_badge">  
+            <div class="d-flex clutch-widget" data-url="https://widget.clutch.co" data-widget-type="9" data-height="90" data-nofollow="true" data-expandifr="true" data-scale="100" data-clutchcompany-id="1728365"></div>                       
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-block d-lg-none px-xxl-3 col-xxl-3 pt-4 pt-md-0 mt-2 mt-md-0"
+        style="order: 6!important;background-color: transparent;">
+        <div class="row g-0 mt-0 mt-md-5" style="background-color: transparent;">
+          <div class="col-12">
+            <div class="font-family-rubik pb-2 copy-link"
+              style="font-weight: 400;font-size: 13px;line-height: 15px;;background-color: transparent;">
+              {{ .Site.Params.copyright | markdownify }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 col-md-3 col-lg-3 col-12 d-none d-lg-block px-xxl-3 col-xxl-3 pt-4 pt-md-0 mt-2 mt-md-0" style="background-color: transparent;">
+
+        <div class="row g-0" style="background-color: transparent;">
+          <div class="col-12 col-lg-10 col-xl-8 w-100" style="background-color: transparent;">
+            <img class="img-fluid" src="{{ .Site.Params.logo | absURL }}" style="background-color: transparent;">
+            <div class="mt-2 mt-sm-4" style="background-color: transparent;">
+              <a href="{{ .Site.Params.fblink| absURL }}" target="_blank">
+                <img class="img" src="{{ .Site.Params.fbIcon| absURL }}" alt="...">
+              </a>
+              <a href="{{ .Site.Params.instalink| absURL }}" target="_blank">
+                <img class="img ms-1 ms-sm-4" src="{{ .Site.Params.instaIcon| absURL }}" alt="...">
+              </a>
+              <a href="{{ .Site.Params.linkedInlink| absURL }}" target="_blank">
+                <img class="img ms-1 ms-sm-4" src="{{ .Site.Params.linkedinIcon| absURL }}" alt="...">
+              </a>
+            </div>
+
+            <div class="d-flex flex-row mt-2 mt-sm-4" style="background-color: transparent;">
+              <img class="d-flex img me-3" src="{{ .Site.Params.gptw_badge | absURL }}" alt="gptw_badge">
+              <div class="clutch-widget" style="display: i;background-color: transparent;" data-url="https://widget.clutch.co" data-widget-type="9" data-height="90" data-nofollow="true" data-expandifr="true" data-scale="100" data-clutchcompany-id="1728365"></div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row g-0 mt-0 mt-md-4" style="background-color: transparent;">
+          <div class="col-12">
+            <div class="font-family-rubik pb-2 copy-link"
+              style="font-weight: 400;font-size: 13px;line-height: 15px;;background-color: transparent;">
+              {{ .Site.Params.copyright | markdownify }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="order-2 order-md-1 order-lg-2 col-md-3 col-12 short-banner d-block ps-xxl-5 col-xxl-3" style="background-color: transparent;">
+        <p class="font-family-rubik mt-0 ps-xxl-0 ps-xl-5 ps-lg-3" style="color: #333333;">
+          <span class="short-banner-lead">{{ .Site.Params.short_paragraph_title | markdownify }}</span>
+          <span>{{ .Site.Params.short_paragraph | markdownify }}</span>
+        </p>
+      </div>
+
+      <div class="order-2 order-md-3 col-md-3 col-lg-2 col-12 ps-md-3 ps-lg-0 ps-md-5 ps-lg-0"
+        style="background-color: transparent ;">
+        <ul class="list-unstyled footer-menu">
+
+          {{$title:= .Title}}
+          {{ range .Site.Menus.footer }}
+          <li><a href="{{.URL | absURL}}" class="font-family-rubik"
+              style="font-size: 16px;font-weight: 400;  {{ if eq .Name $title }} color: #333333; {{else}} color: #333333;  {{ end }} line-height: 18.96px;text-decoration:none;">{{.Name}}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="order-3 order-md-4 col-md-3 col-lg-2 col-12 pe-md-4 pe-lg-2 pe-xl-0 pt-3 pt-md-0" style="background-color: transparent;">
+        <h4 class="font-family-rubik" style="font-weight: 400; font-size: 16px;line-height: 18.96px; color: #333333;">{{
+          .Site.Params.contentHeader | markdownify }}</h4>
+        <div class="col font-family-rubik"
+          style="padding: 0; font-size: 14px;color: #808080;line-height: 25px;font-weight: 400;">
+          {{ .Site.Params.content1_1 | markdownify }} <br />
+          {{ .Site.Params.content1_2 | markdownify }} <br />
+          {{ .Site.Params.content1_2_5 | markdownify }} <br />
+          {{ .Site.Params.content1_3 | markdownify }}
+        </div>
+        <div class="font-family-rubik mt-4"
+          style="padding: 0;font-size: 14px;color: #808080;line-height: 25px;font-weight: 400;">
+          {{ .Site.Params.content2 | markdownify }}
+        </div>
+      </div>
+      <div class="order-4 order-md-5 col-md-3 col-lg-2 col-12 pt-4 pt-md-0 mt-1 mt-md-4 mt-lg-0" style="background-color: transparent;">
+        <h4 class="font-family-rubik" style="font-size: 16px;font-weight: 400;  color: #333333; line-height: 18.96px;">
+          {{ .Site.Params.sl_contentHeader | markdownify }}</h4>
+        <div class="col font-family-rubik" style="padding: 0; font-size: 14px;color: #808080;line-height: 25px;font-weight: 400">
+          {{ .Site.Params.sl_content1_1 | markdownify }} <br />
+          {{ .Site.Params.sl_content1_2 | markdownify }} <br />
+          {{ .Site.Params.sl_content1_3 | markdownify }} <br />
+          {{ .Site.Params.sl_content1_4 | markdownify }}
+        </div>
+        <div class="font-family-rubik mt-4"
+          style="padding: 0;font-size: 14px;color: #808080;line-height: 25px;font-weight: 400">
+          {{ .Site.Params.sl_content2 | markdownify }}
+        </div>
+        <div class="font-family-rubik mt-auto"
+          style="padding: 0;font-size: 14px;color: #808080;line-height: 25px;font-weight: 400">
+          {{ .Site.Params.sl_content3 }}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

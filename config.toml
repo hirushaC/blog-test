@@ -1,0 +1,411 @@
+######################## default configuration ####################
+# baseURL = "https://insighture-blog-dev.netlify.app/"
+baseURL = "/"
+title = "The Insighture Blog"
+theme = "bookworm"
+# post pagination
+paginate = "5"
+# post excerpt
+summaryLength = "20"
+# google analytics
+googleAnalytics = "" # example : UA-123-45
+# disqus short name
+disqusShortname = "themefisher-template" # get your shortname form here : https://disqus.com
+# disable language
+disableLanguages = ["Fr"] # desable language from here
+
+############################# Outputs ##############################
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+unsafe= true
+
+
+######################## Plugins ####################
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.min.css"
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/instagram-feed/instagram-feed.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+
+# site variables
+[params.variables]
+primary_font = "Rubik:wght@300;400;500;600;700;800;900"
+primary_font_type = "normal" # [serif/sans-serif]
+secondary_font = "Basic:wght@300;400;500;600;700;800;900"
+secondary_font_type = "" # [serif/sans-serif]
+icon_font = "Font Awesome 5 Free"
+
+h1 = "64px"
+h1_lg = "52px"
+h1_md = "42px"
+h2 = "38px"
+h2_md = "30px"
+h3 = "30px"
+h3_md = "24px"
+h4 = "24px"
+h5 = "18px"
+h6 = "16px"
+white = "#ffffff"
+black = "#000000"
+dark = "#333333"
+gray = "#747577"
+light = "#FAFAFA"
+color_primary = "#FC582A"
+primary-color = "#FC582A"
+secondary-color  = "#FF615A"
+
+#################### default parameters ################################
+[params]
+logo = "images/latest_logo.svg"
+logo_height = ""
+favicon = "images/favicon.png"
+# Meta data
+description = "Insighture Technology Blog"
+author = "Insighture"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+contact_url = "https://www.insighture.com/contact"
+contact_name = "Connect"
+logoLink = "https://www.insighture.com"
+
+
+# search
+search = true # (if Search is disable/false Menu will align in Right)
+# Menu align
+menu_align = "right" # Menu-align value "left", "right" or "center" (if Search is disable/false Menu will align in Right)
+# Main section
+mainSection = ["article"]
+# Post layout
+post_layout = "grid" # Post-Layout value ("grid" or "list")
+# Blog-details page sidebar
+sidebar = "right" # Sidebar value ("left", "right" or false)
+
+fbIcon = "images/footer/new_facebook.png"
+twitterIcon = "images/footer/new_twitter.png"
+instaIcon = "images/footer/new_insta.png"
+linkedInIcon = "images/footer/new_linkedin.png"
+gitIcon = "images/footer/git.png"
+gptw_badge = "images/footer/gptw_badge.png"
+
+
+fblink = "https://www.facebook.com/insighture.au"
+instalink = "https://www.instagram.com/insighture_/"
+githublink = "https://github.com/insighture"
+linkedInlink = "https://www.linkedin.com/company/insighture/"
+
+darkLogo = "images/logo_light.svg"
+
+
+contentHeader = "Asia Pacific"
+locationIcon = "images/footer/location.png"
+content1_1 = "221 Queen Street"
+content1_2 = "2nd Floor Unit 8d, VIC"
+content1_2_5 = "3000"
+content1_3 = "Australia"
+
+contactIcon = "images/footer/phone.png"
+mailIcon = "images/footer/mail.png"
+
+content2 = "+61 3 9005 6585"
+content3 = "hello@insighture.com"
+
+sl_contentHeader = "Asia"
+sl_content1_1 = "Colombo Innovation Tower"
+
+sl_content1_2 = "15th Floor"
+sl_content1_3 = "477, R.A. De Mel Mawatha"
+sl_content1_4 = "Colombo 04, Sri Lanka"
+
+
+sl_content2 = "+94 112 301708"
+sl_content3 = "hello@insighture.com"
+
+short_paragraph_title = "[From our blogs](https://blog.insighture.com)"
+short_paragraph = "read more about the technologies our teams are raving about."
+
+copyright = "&nbsp; &#169;2023 [Insighture](https://www.insighture.com) All Rights Reserved &nbsp;"
+
+
+
+
+# header background images
+banner_img = "images/backgrounds/banner_blog.png"
+
+######################## sidebar widgets #########################
+[params.widgets]
+sidebar = ["search", "categories", "tags", "social"]
+# available widget : search, categories, tags, social
+
+# Preloader
+[params.preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
+
+# Instagram feed
+[params.instafeed]
+enable = false
+instagram_user = "insighture"
+access_token = ""
+
+# Subscription
+[params.subscription]
+enable = true
+# mailchimp subsciption
+mailchimp_form_action = "" # replace this url with yours
+mailchimp_form_name = "" # replace this code with yours
+title = "Subscribe for our monthly newsletter."
+input_placeholder = "Enter your email"
+
+# cookies
+[params.cookies]
+enable = false
+expire_days = 2
+
+# Social Icons
+[[params.social]]
+url = "https://www.facebook.com/insighture.au"
+icon = "fab fa-facebook-f" # https://fontawesome.com/
+
+[[params.social]]
+url = "https://www.twitter.com/"
+icon = "fab fa-twitter" # https://fontawesome.com/
+
+[[params.social]]
+url = "https://www.instagram.com/insighture_/"
+icon = "fab fa-instagram" # https://fontawesome.com/
+
+[[params.social]]
+url = "https://www.linkedin.com/company/insighture/"
+icon = "fab fa-linkedin-in" # https://fontawesome.com/
+
+
+################################### English language #####################################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+contentDir = "content/english"
+weight = 1
+
+
+############################# English - Main Menu ########################
+#[[Languages.en.menu.main]]
+#weight = 1
+#url = "/"
+#name = "Layout"
+#hasChildren = true
+
+#  [[Languages.en.menu.main]]
+#  parent = "Layout"
+#  weight = 1
+#  url = "homepage/list/"
+#  name = "List layout"
+
+#  [[Languages.en.menu.main]]
+#  parent = "Layout"
+#  weight = 2
+#  url = "homepage/grid/"
+#  name = "Grid layout"
+
+[[Languages.en.menu.main]]
+weight = 3
+url = "https://www.insighture.com/about"
+name = "About"
+
+[[Languages.en.menu.main]]
+weight = 4
+url = "https://www.insighture.com/service"
+name = "Services"
+
+[[Languages.en.menu.main]]
+weight = 5
+url = "https://www.insighture.com/engage"
+name = "Engagement Model"
+
+[[Languages.en.menu.main]]
+weight = 6
+url = "https://blog.insighture.com/"
+name = "Blog"
+
+#[[Languages.en.menu.main]]
+#weight = 7
+#url = "#"
+#name = "Pages"
+#hasChildren = true
+
+#  [[Languages.en.menu.main]]
+#  parent = "Pages"
+#  weight = 1
+#  url = "author/"
+#  name = "Author"
+
+#  [[Languages.en.menu.main]]
+#  parent = "Pages"
+#  weight = 2
+#  url = "tags/"
+#  name = "Tags"
+
+#  [[Languages.en.menu.main]]
+#  parent = "Pages"
+#  weight = 3
+#  url = "tags/photography/"
+#  name = "Tag Single"
+
+#  [[Languages.en.menu.main]]
+#  parent = "Pages"
+#  weight = 4
+#  url = "categories/"
+#  name = "Category"
+
+#  [[Languages.en.menu.main]]
+#  parent = "Pages"
+#  weight = 5
+#  url = "categories/lifestyle/"
+#  name = "Category Single"
+
+#  [[Languages.en.menu.main]]
+#  parent = "Pages"
+#  weight = 6
+#  url = "elements/"
+#  name = "Elements"
+
+############################# Footer Menu ########################
+[[Languages.en.menu.footer]]
+weight = 1
+url = "https://www.insighture.com/about"
+name = "About"
+
+[[Languages.en.menu.footer]]
+weight = 2
+url = "https://www.insighture.com/service"
+name = "Services"
+
+[[Languages.en.menu.footer]]
+weight = 3
+url = "https://www.insighture.com/engage"
+name = "Engagement Model"
+
+[[Languages.en.menu.footer]]
+weight = 4
+url = "https://www.insighture.com/contact"
+name = "Contact"
+
+
+################################### French language #####################################
+[Languages.fr]
+languageName = "Fr"
+languageCode = "fr-fr"
+contentDir = "content/french"
+weight = 2
+
+############################# French - Main Menu ########################
+[[Languages.fr.menu.main]]
+weight = 1
+url = "/"
+name = "Home"
+hasChildren = true
+
+  [[Languages.fr.menu.main]]
+  parent = "Home"
+  weight = 1
+  url = "homepage/list/"
+  name = "List layout"
+
+  [[Languages.fr.menu.main]]
+  parent = "Home"
+  weight = 2
+  url = "homepage/grid/"
+  name = "Grid layout"
+
+[[Languages.fr.menu.main]]
+weight = 3
+url = "about"
+name = "About"
+
+[[Languages.fr.menu.main]]
+weight = 4
+url = "contact"
+name = "Contact"
+
+[[Languages.fr.menu.main]]
+weight = 5
+url = "#"
+name = "Pages"
+hasChildren = true
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 1
+  url = "author/"
+  name = "Author"
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 2
+  url = "tags/"
+  name = "Tags"
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 3
+  url = "tags/photography/"
+  name = "Tag Single"
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 4
+  url = "categories/"
+  name = "Category"
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 5
+  url = "categories/lifestyle/"
+  name = "Category Single"
+
+  [[Languages.fr.menu.main]]
+  parent = "Pages"
+  weight = 6
+  url = "elements/"
+  name = "Elements"
+
+############################# Footer Menu ########################
+[[Languages.fr.menu.footer]]
+weight = 1
+url = "about/"
+name = "Quelque"
+
+[[Languages.fr.menu.footer]]
+weight = 2
+url = "author/"
+name = "Auteure"
+
+[[Languages.fr.menu.footer]]
+weight = 3
+url = "privacy/"
+name = "Vie privée"
+
+[[Languages.fr.menu.footer]]
+weight = 4
+url = "terms-conditions/"
+name = "Termes et conditions"

@@ -1,0 +1,129 @@
+<div class="header-height-fix"></div>
+<header class="header-nav"><!-- style="background-image: url({{site.Params.banner_img  | absURL}});  background-repeat: no-repeat;background-size: cover;" -->
+  {{$title:= .Title}}
+  <div class="container-fluid px-0 px-md-5">
+    <div class="row px-lg-2">
+      <div class="col-12 px-lg-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-0 pt-0 ps-3 pe-3 px-xxl-5 px-xl-4">
+          <a class="navbar-brand font-weight-bold me-0" href="{{site.Params.logoLink | absLangURL}}" style="border-top: 5px solid transparent;">
+            {{if site.Params.logo}}
+            <img loading="lazy" src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
+            {{else}} {{site.Title}} {{end}}
+          </a>
+
+          {{if site.Params.search}}
+          <button class="search-toggle d-inline-block d-lg-none ms-auto me-3" data-toggle="search" aria-label="Search Toggle">
+            <i class="fas fa-search" style="color:#747577;font-size:28px;padding-top:10px;"></i>
+          </button>
+          {{end}}
+
+        
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation" style="border-top: 5px solid transparent;">
+            <i class="icon fas fa-align-right" style="color:#747577;font-size:28px"></i>
+          </button> -->
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation" style="border-top: 5px solid transparent;">
+            <i class="navbar-toggler-icon" style="color:#747577;font-size:28px;"></i>
+          </button>
+
+     
+
+          <div class="collapse navbar-collapse text-center" id="navHeader" style="background-color: white;">
+            {{ $menu_align:= site.Params.menu_align }}
+
+            {{ if site.Params.search }}
+            {{ if eq $menu_align "right" }}
+            <ul class="navbar-nav ms-auto me-auto me-lg-0">
+            {{ else if eq $menu_align "left" }}
+            <ul class="navbar-nav me-auto ms-auto ms-lg-0 ps-0 ps-lg-5">
+            {{ else }}
+            <ul class="navbar-nav mx-auto">
+            {{ end }}
+            {{ else }}
+            <ul class="navbar-nav ms-auto me-auto me-lg-0">
+            {{ end }}
+
+
+              {{ $current := . }}
+              {{ range site.Menus.main }}
+              {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+              {{ $active = or $active (eq .Name $current.Title) }}
+              {{if .HasChildren}}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-inline-block {{ if $active }}active{{ end }}" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{.Name}}</a>
+                <ul class="dropdown-menu">
+                  {{range .Children}}
+                  <li><a class="dropdown-item" href="{{.URL | absLangURL}}">{{.Name}}</a></li>
+                  {{end}}
+                </ul>
+              </li>
+              {{else}}
+              <li class="nav-item nav-item-text {{ if $active }}active{{ end }}">
+                <a class="nav-link custom-nav-link" href="{{.URL | absLangURL}}"  style="{{ if eq .Name $title }} border-top:5px solid #333333; {{ end }}">{{.Name}}</a>
+              </li>
+              {{end}}
+              {{end}}
+
+              <!-- Language List -->
+              {{ if .IsTranslated }}
+              <li class="nav-item">
+                <span class="nav-link">
+                  <select class="border-0" id="select-language" style="cursor:pointer;background:transparent" onchange="location = this.value;">
+                    {{ $siteLanguages := site.Languages}}
+                    {{ $pageLang := .Page.Lang}}
+                    {{ range .Page.AllTranslations }}
+                    {{ $translation := .}}
+                    {{ range $siteLanguages }}
+                    {{ if eq $translation.Lang .Lang }}
+                    {{ $selected := false }}
+                    {{ if eq $pageLang .Lang}}
+                    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+                    </option>
+                    {{ else }}
+                    <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+                  </select>
+                </span>
+              </li>
+              {{ end }}
+            </ul>
+
+            <a class="btn btn-primary btn-connect" href="{{ .Site.Params.contact_url | absURL }}">{{ .Site.Params.contact_name }}</a>
+
+            {{if site.Params.search}}
+            <div class="navbar-end d-none d-lg-inline-block">
+              <ul class="social-links list-unstyled list-inline">
+                <li class="list-inline-item ms-4 d-none d-lg-inline-block">
+                  <button class="search-toggle" data-toggle="search" aria-label="Search Toggle">
+                    <i class="fas fa-search" style="color:#747577;font-size:28px"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            {{end}}
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- progress bar -->
+  <div class="progress_section">
+    <div class="progress_highlight" id="js_highlight"></div>
+  </div>
+
+</header>
+
+{{if site.Params.search}}
+<div class="search-block">
+  <div data-toggle="search-close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="text-primary" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+  </div>
+  <form action="{{ `search`| relLangURL }}">
+    <input id="search-query" name="s" type="search" placeholder="{{ i18n `search_placeholder`}}" class="text-center" aria-label="search-query">
+  </form>
+</div>
+{{end}}
