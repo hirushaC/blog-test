@@ -2,7 +2,7 @@
 title: title2
 image: /article/bg-dark.png
 date: 2024-05-16T00:24:00.000Z
-author: Insighture Technology
+author: INSIGHTURE TECHNOLOGY
 tags:
   - Technology
 categories:
