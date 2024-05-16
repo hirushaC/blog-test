@@ -3,6 +3,7 @@
 baseURL = "/"
 title = "The Insighture Blog"
 theme = "bookworm"
+timezone = "Asia/Kolkata"
 # post pagination
 paginate = "5"
 # post excerpt
@@ -13,8 +14,6 @@ googleAnalytics = "" # example : UA-123-45
 disqusShortname = "themefisher-template" # get your shortname form here : https://disqus.com
 # disable language
 disableLanguages = ["Fr"] # desable language from here
-
-timezone = "Asia/Kolkata"
 
 ############################# Outputs ##############################
 [outputs]

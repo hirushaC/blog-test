@@ -45,7 +45,7 @@
   <div class="card-body px-4" style="background-color: transparent;">
     <ul class="card-meta list-inline mb-2">
       <li class="list-inline-item mb-2">
-        <span style="font-size: 12px;font-weight: 500;line-height: 18px; color: #7D7D7D;text-transform: capitalize;">{{.PublishDate.Format "02 Jan, 2006"}}</span>
+        <span style="font-size: 12px;font-weight: 500;line-height: 18px; color: #7D7D7D;text-transform: capitalize;">{{ .PublishDate | time.Format "02 Jan, 2006 15:04" }}</span>
       </li>
       <li class="list-inline-item mb-2">
         {{ $author:= .Params.Author | urlize | lower}}
