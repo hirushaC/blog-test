@@ -6,7 +6,7 @@ author: test
 tags:
   - test
 categories:
-  - test
+  - Technology
 draft: false
 ---
 test
