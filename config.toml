@@ -14,7 +14,7 @@ disqusShortname = "themefisher-template" # get your shortname form here : https:
 # disable language
 disableLanguages = ["Fr"] # desable language from here
 
-timezone = "Local"
+timezone = "Asia/Kolkata"
 
 ############################# Outputs ##############################
 [outputs]
