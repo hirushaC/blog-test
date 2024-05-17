@@ -89,7 +89,7 @@ contact_form_action = "#" # contact form works with https://formspree.io
 contact_url = "https://www.insighture.com/contact"
 contact_name = "Connect"
 logoLink = "https://www.insighture.com"
-
+sortByDate = true
 
 # search
 search = true # (if Search is disable/false Menu will align in Right)
@@ -410,3 +410,12 @@ name = "Vie privée"
 weight = 4
 url = "terms-conditions/"
 name = "Termes et conditions"
+
+########################## Sorting by Date ##########################
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]
+  dateFormat = "2006-01-02T15:04:05-07:00"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
