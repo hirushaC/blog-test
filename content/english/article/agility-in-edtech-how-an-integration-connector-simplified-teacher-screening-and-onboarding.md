@@ -9,6 +9,12 @@ tags:
   - Integrations
 categories: []
 draft: false
+meta_title: "Agility in EdTech: How an Integration Connector Simplified Teacher
+  Screening and Onboarding"
+meta_description: Admin burden and manual task overload in education is a
+  continuous issue, eating up time and resources.
+meta_keywords:
+  - EdTech
 ---
 Target audience: Startup founders, CEOs, CTOs 
 
