@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <title>{{ .Title }}</title>
 
+<meta name="title" content="{{ with .Params.meta_title }}{{.}}{{else}}{{ .Title }}{{end}}">
 <meta name="author" content="{{ with .Params.author }}{{.}}{{else}}{{ site.Params.author }}{{end}}">
 <meta name="description" content="{{ with .Params.meta_description }}{{.}}{{else}}{{ with .Params.description }}{{.}}{{else}}{{ site.Params.description }}{{end}}{{end}}">
 
